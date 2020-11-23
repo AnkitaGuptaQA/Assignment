@@ -136,11 +136,6 @@ public class Page {
             //Click on register button
             driver.findElement(By.id("register-button")).click();
 
-            //Assert registered message
-//            String message;
-//            message = driver.findElement(By.cssSelector("body > div.master-wrapper-page > div.master-wrapper-content > div > div > form > div > div.page-body > div.result")).getText();
-//            Assert.assertEquals("Your registration completed",message);
-
             //Click on the button to continue
             driver.findElement(By.name("register-continue")).click();
             Thread.sleep(5000);
@@ -166,18 +161,14 @@ public class Page {
             // Navigate to the login page
             driver.findElement(By.cssSelector("body > div.master-wrapper-page > div.header > div.header-upper > div.header-links-wrapper > div.header-links > ul > li:nth-child(2) > a")).click();
             driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-//            String logintitle;
-//            logintitle = driver.findElement(By.xpath("/html/body/div[6]/div[3]/div/div/div/div[1]/h1")).getText();
-//            Assert.assertEquals("Welcome, Please Sign In!", logintitle);
 
             String registeredemail = csvCells[6];
             String registeredpassword = csvCells[8];
-//            By emailpath = By.id("Email");
-//            By passwordpath = By.id("Password");
+
 
             //Add email
-
-           // driver.findElement(emailpath).click();
+            driver.findElement(By.cssSelector("#Email")).click();
+            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
             driver.findElement(By.cssSelector("#Email")).clear();
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
             driver.findElement(By.cssSelector("#Email")).sendKeys(registeredemail);
@@ -193,19 +184,9 @@ public class Page {
             driver.findElement(By.cssSelector("body > div.master-wrapper-page > div.master-wrapper-content > div > div > div > div.page-body > div.customer-blocks > div.returning-wrapper.fieldset > form > div.buttons > input")).click();
             Thread.sleep(5000);
 
-//           //Assert the page title
-//             String pageTitle;
-//            pageTitle = driver.findElement(By.cssSelector("body > div.master-wrapper-page > div.master-wrapper-content > div > div > div > div > div.topic-block > div.topic-block-title > h2")).getText();
-//            Assert.assertEquals("Welcome to our store",pageTitle);
-//            System.out.println(pageTitle);
-
             //logout
 
             driver.findElement(By.xpath("/html/body/div[6]/div[1]/div[1]/div[2]/div[1]/ul/li[2]/a")).click();
-//            WebDriverWait wait = new WebDriverWait(driver,30);
-//            WebElement logouttext;
-//            logouttext = driver.findElement(By.xpath("/html/body/div[6]/div[1]/div[1]/div[2]/div[1]/ul/li[2]/a"));
-//            wait.until(ExpectedConditions.elementToBeClickable(logouttext)).click();
             Thread.sleep(5000);
 
         }
